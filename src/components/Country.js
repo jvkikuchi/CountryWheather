@@ -1,12 +1,15 @@
+
+  
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Country = ({country}) =>{
   const [weathers, setWeathers] = useState([])
+  const api_key = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     async function getWeather() {
-      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&appid=781bcf355de8e4981f7c177f5e119188&units=metric`)
+      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&appid=${api_key}&units=metric`)
       setWeathers(response.data)
       console.log(response.data)
       
