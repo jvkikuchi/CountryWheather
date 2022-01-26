@@ -1,5 +1,3 @@
-
-  
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -27,7 +25,6 @@ const Country = ({country}) =>{
         <h2>Flag</h2> 
         <img src={country.flags.png} alt="country flag"></img>
         <h2>Current Weather on {country.capital}</h2>
-        <p></p>
         <p>temperature: {weathers.main.temp} &#176;C 
           / min temp: {weathers.main.temp_min} &#176;C
           / max temp: {weathers.main.temp_max} &#176;C
