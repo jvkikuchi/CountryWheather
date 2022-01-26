@@ -6,37 +6,37 @@ const Country = ({country}) =>{
 
   useEffect(() => {
     async function getWeather() {
-      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&appid=781bcf355de8e4981f7c177f5e119188`)
+      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&appid=781bcf355de8e4981f7c177f5e119188&units=metric`)
       setWeathers(response.data)
       console.log(response.data)
       
     }
-
     getWeather();
   }, [])
 
-  // useEffect(() => {
-  //     axios.get(`https://api.openweathermap.org/data/2.5/weather?q=&appid=781bcf355de8e4981f7c177f5e119188`)
-  //        .then((response) => {
-  //        setWeathers(response.data)
-  //        console.log(weathers, 'WEATHER FETCHED')
-  //   });
-    
-  // }, []);
+  if(weathers.length !== 0){
+    return(
+      <div>
+        <h1>{country.name.common}</h1>
+        <p>official name: {country.name.official}</p>
+        <p>capital: {country.capital}</p>
+        <p>population: {country.population}</p>
+        <h2>Flag</h2> 
+        <img src={country.flags.png} alt="country flag"></img>
+        <h2>Current Weather</h2>
+        <p></p>
+        <p>temperature: {weathers.main.temp} &#176;C 
+          / min temp: {weathers.main.temp_min} &#176;C
+          / max temp: {weathers.main.temp_max} &#176;C
+        </p>
+        <p>humidity: {weathers.main.humidity}%</p>
+        <p>coords: lon =  {weathers.coord.lon} lat = {weathers.coord.lat}</p>
 
-
-  return(
-    <div>
-      <h1>{country.name.common}</h1>
-      <p>official name: {country.name.official}</p>
-      <p>capital: {country.capital}</p>
-      <p>population: {country.population}</p>
-      <h2>Flag</h2> 
-      <img src={country.flags.png} alt="country flag"></img>
-      <h2>Current Weather</h2>
-      <p>wind speed: {weathers.wind.speed}</p>      
-     
-    </div>
+      </div>
+    )
+  }
+  return (
+    <></>
   )
 }
 
