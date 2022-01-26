@@ -26,7 +26,7 @@ const Country = ({country}) =>{
         <p>population: {country.population}</p>
         <h2>Flag</h2> 
         <img src={country.flags.png} alt="country flag"></img>
-        <h2>Current Weather</h2>
+        <h2>Current Weather on {country.capital}</h2>
         <p></p>
         <p>temperature: {weathers.main.temp} &#176;C 
           / min temp: {weathers.main.temp_min} &#176;C
