@@ -12,19 +12,23 @@ const FilteredInfo  = ({ countries, search, handleShow }) => {
     );
   } else if (countries.length > 0 && countries.length < 10 && search !== "") {
     return (
-      <ul>
-        {countries.map((country, i) => (
-          <li key={i}>
-            {country.name.common}{" "}
-            <Button text={"show"} showInfo={() => handleShow([country])} />
-          </li>
-        ))}
-      </ul>
+      <div >
+        <ul >
+          {countries.map((country, i) => (
+            <div className="p-2" key={i}>
+              <li className="flex flex-col p-2 border solid rounded-lg hover:bg-slate-100"  key={i}>
+                <p className="py-1 self-center font-bold">{country.name.common} {country.flag}</p>{" "}
+                <Button text={"Show"} showInfo={() => handleShow([country])} />
+            </li>
+            </div>
+          ))}
+        </ul>
+      </div>
     );
   }else if (countries.length > 10) {
-    return <p>Too many matches, specify another filter</p>;
+    return <p className="pl-4">Too many matches, specify another filter</p>;
   }else {
-    return <p>Type the name of a country to filter</p>;
+    return <p className="pl-4">Type the name of a country to filter</p>;
   }
 };
 

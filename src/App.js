@@ -10,7 +10,7 @@ const App = () => {
   useEffect(() => {
     axios.get("https://restcountries.com/v3.1/all").then((response) => {
       setCountries(response.data);
-      console.log(response.data.length, "COUNTRIES FETCHED");
+      console.log(response.data, "COUNTRIES FETCHED");
     });
     
   }, []);
@@ -25,10 +25,14 @@ const App = () => {
   };
 
   return (
-    <div>
-      find countries <input value={search} onChange={handleSearch}></input>
-      <FilteredInfo countries={filteredCountries} search={search} handleShow={setFilteredCountries}/>
-    </div>
+    <>
+      <div className="p-2">
+          find countries <input className="rounded-full border-2 outline-0 font-medium" value={search} onChange={handleSearch}></input>
+        </div>
+      <div className="font-mono self-center">
+        <FilteredInfo countries={filteredCountries} search={search} handleShow={setFilteredCountries}/>
+      </div>
+    </>
   );
 };
 
