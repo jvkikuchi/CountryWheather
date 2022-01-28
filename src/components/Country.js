@@ -16,24 +16,27 @@ const Country = ({country}) =>{
 
   if(weathers.length !== 0){
     return(
-      <div className="flex justify-center border solid w-full h-96 pt-4">
-        <div className="solid w- border-4 border-blue-200 rounded-lg">
+      <div className="flex justify-center border solid w-full h-fit pt-4">
+        <div className="solid border-2 border-blavk rounded-lg drop-shadow-">
           <div className="flex flex-col justify-center">
-            <h1 className="text-center w-full font-bold">{country.name.common} {country.flag}</h1>
-            <p className="w-1/2">official name: {country.name.official}</p>
-            <p>capital: {country.capital}</p>
-            <p>population: {country.population}</p>
-            <h2>Flag</h2> 
-            <div>
-              <img src={country.flags.png} alt="country flag" className="w-1/2"></img>
+            <img src={country.flags.svg} alt="country flag" className="rounded h-52 w-fit"></img>
+            <h1 className="text-center w-full font-bold mt-2 text-xl">{country.name.common} {country.flag}</h1>
+            <div className="ml-1 mr-2 text-center mt-2">
+              <p><strong>Official Name</strong></p> 
+              <p>{country.name.official}</p>
+              <p><strong>Capital</strong> </p>
+              <p>{country.capital}</p>
+              <p><strong>Population</strong> </p>
+              <p>{country.population}</p>
             </div>
-            <h2>Current Weather on {country.capital}</h2>
-            <p>temperature: {weathers.main.temp} &#176;C 
-              <br></br>min temp: {weathers.main.temp_min} &#176;C
-              <br></br>max temp: {weathers.main.temp_max} &#176;C
-            </p>
-            <p>humidity: {weathers.main.humidity}%</p>
-            <p>coords: lon =  {weathers.coord.lon} lat = {weathers.coord.lat}</p>
+            <h2 className="ml-1 mr-2 mt-2 "><strong>Weather on {country.capital}</strong>&#127777;</h2>
+            <div className="ml-4 mr-2 mb-2 font-serif">
+              <p>Temperature: {weathers.main.temp} &#176;C</p>
+              <p>Min temp: {weathers.main.temp_min} &#176;C</p>
+              <p>Max temp: {weathers.main.temp_max} &#176;C</p>
+              <p>Humidity: {weathers.main.humidity}%</p>
+              <p>Feels Like: {weathers.main.feels_like} &#176;C</p>
+            </div>
           </div>
         </div>
       </div>
