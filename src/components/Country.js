@@ -19,7 +19,7 @@ const Country = ({country}) =>{
       <div className="flex justify-center border solid w-full h-fit pt-4">
         <div className="solid border-2 border-blavk rounded-lg drop-shadow-">
           <div className="flex flex-col justify-center">
-            <img src={country.flags.svg} alt="country flag" className="rounded h-52 w-fit"></img>
+            <img src={country.flags.svg} alt="country flag" className="rounded h-40 w-fit"></img>
             <h1 className="text-center w-full font-bold mt-2 text-xl">{country.name.common} {country.flag}</h1>
             <div className="ml-1 mr-2 text-center mt-2">
               <p><strong>Official Name</strong></p> 
