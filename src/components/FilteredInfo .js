@@ -13,7 +13,10 @@ const FilteredInfo  = ({ countries, search, handleShow }) => {
   } else if (countries.length > 0 && countries.length < 10 && search !== "") {
     return (
       <>
-        <div className="flex justify-center"><p className="text-center bg-green-400 w-full">Select a country</p></div>
+        <div className="flex justify-center">
+          <p className="text-center bg-green-400 w-full">Select a country</p>
+        </div>
+        
         <div className="flex flex-row justify-center pt-2 h-full">
           <ul>
             {countries.map((country, i) => (

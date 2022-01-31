@@ -16,6 +16,7 @@ const App = () => {
     
   }, []);
 
+  //Função que controla o valor da busca, e faz o filtro 
   const handleSearch = (event) => {
     setSearch(event.target.value);
     const filteredCoutry = () =>
