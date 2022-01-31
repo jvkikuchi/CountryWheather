@@ -3,11 +3,10 @@ import axios from "axios";
 
 const Country = ({country}) =>{
   const [weathers, setWeathers] = useState([])
-  const api_key = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     async function getWeather() {
-      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&appid=${api_key}&units=metric`)
+      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&appid=781bcf355de8e4981f7c177f5e119188&units=metric`)
       setWeathers(response.data)
       console.log(response.data)
       
@@ -17,22 +16,35 @@ const Country = ({country}) =>{
 
   if(weathers.length !== 0){
     return(
-      <div>
-        <h1>{country.name.common}</h1>
-        <p>official name: {country.name.official}</p>
-        <p>capital: {country.capital}</p>
-        <p>population: {country.population}</p>
-        <h2>Flag</h2> 
-        <img src={country.flags.png} alt="country flag"></img>
-        <h2>Current Weather on {country.capital}</h2>
-        <p>temperature: {weathers.main.temp} &#176;C 
-          / min temp: {weathers.main.temp_min} &#176;C
-          / max temp: {weathers.main.temp_max} &#176;C
-        </p>
-        <p>humidity: {weathers.main.humidity}%</p>
-        <p>coords: lon =  {weathers.coord.lon} lat = {weathers.coord.lat}</p>
-
+      <div className="flex justify-center w-full pt-8">
+        <div className=" w-400 h-400 drop-shadow-">
+          <div className="flex flex-col justify-center border-2 border-teal-500 rounded-lg h-400">
+            <div>
+              <img src={country.flags.png} alt="country flag" className="rounded"></img>
+            </div>
+            <h1 className="text-center w-full font-bold mt-2 text-xl">{country.name.common} {country.flag}</h1>
+            <div className="ml-1 mr-2 text-center mt-2">
+              <p><strong>Official Name</strong></p> 
+              <p>{country.name.official}</p>
+              <p><strong>Capital</strong> </p>
+              <p>{country.capital}</p>
+              <p><strong>Population</strong> </p>
+              <p>{country.population}</p>
+              <p><strong>Continent</strong></p>
+              <p>{country.continents}</p>
+            </div>
+            <h2 className="ml-1 mr-2 mt-2 text-center"><strong>Weather on {country.capital}</strong>&#127777;</h2>
+            <div className="ml-1 mr-2 text-center mt-2">
+              <p><strong>Temperature:</strong> {weathers.main.temp} &#176;C</p>
+              <p><strong>Min temp:</strong> {weathers.main.temp_min} &#176;C</p>
+              <p><strong>Max temp:</strong> {weathers.main.temp_max} &#176;C</p>
+              <p><strong>Humidity:</strong> {weathers.main.humidity}%</p>
+              <p><strong>Feels like:</strong> {weathers.main.feels_like} &#176;C</p>
+            </div>
+          </div>
+        </div>
       </div>
+      
     )
   }
   return (
