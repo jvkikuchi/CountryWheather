@@ -9,5 +9,4 @@ Desenvolvido com base em uma das tarefas do curso Deep Dive Into Modern Web Deve
 
 
 
-https://user-images.githubusercontent.com/60197143/153446044-29abb931-5517-4adb-8e0e-cbe6737b1ee4.mp4
-
+![Demo](https://user-images.githubusercontent.com/60197143/153446378-bb3f3125-dcc3-4204-a43e-73778de46ec1.gif)
